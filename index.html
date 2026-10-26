@@ -179,8 +179,8 @@
             description: project.description || '',
             homepage: project.homepage || '',
             repository: project.repository || '',
-            owner: project.owner || '',
-            licenses: project.licenses || [],
+            owner: (project.owner || '').toLowerCase(),
+            licenses: (project.licenses || []).map(license => license.startsWith('W3C-') ? 'W3C' : license),
             status: project.status || '',
             purposes: project.purposes || [],
           }));
